@@ -17,6 +17,7 @@ module.exports = function (app) {
     };
 //parse survey results    
     var userScores = req.body.scores;
+    var totalDifference =0;
     
     //loop through cupcakes
     for (var i = 0; i < cupcakes.length; i++) {
@@ -32,6 +33,8 @@ module.exports = function (app) {
         flavor.difference = totalDifference;
       }
     }
+
+    cupcakes.push(req.body);
 
     //show response to user
     res.json(flavor);
